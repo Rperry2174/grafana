@@ -160,6 +160,7 @@ Build a specific plugin: `yarn workspace @grafana-plugins/<name> dev`
 - **Backend**: `make run` — builds and starts Grafana backend with hot-reload (air) on `localhost:3000`. Default login: `admin`/`admin`. First build takes ~3 minutes due to debug symbols (`-gcflags all=-N -l`); subsequent hot-reload rebuilds are faster.
 - **Frontend**: `yarn start` — starts webpack dev server that watches for changes. The backend proxies to it. First compile takes ~45s.
 - No external databases required — Grafana uses embedded SQLite by default.
+- **No login required**: `conf/custom.ini` is committed (intentionally un-gitignored) and enables anonymous access as Admin with the login form hidden, so `localhost:3000` opens straight into the app. To restore normal login, edit/remove `conf/custom.ini` and restart the backend.
 
 ### Testing gotchas
 
